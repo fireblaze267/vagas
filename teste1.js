@@ -1,5 +1,5 @@
-const { response } = require("express");
 var data = require("./fakeData");
+
 const { normalizeString } = require("./utils/string");
 const { writeFile } = require("./utils/writeFile");
 
@@ -36,7 +36,11 @@ const getUser = (req, res, next) => {
 };
 
 const getUsers = (req, res, next) => {
-  res.status(200).json(data);
+  delete require.cache[require.resolve("./fakeData")];
+
+  const newData = require("./fakeData");
+
+  res.status(200).json(newData);
 };
 
 module.exports = {

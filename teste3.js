@@ -18,7 +18,7 @@ module.exports = function (req, res) {
     writeFile(newArray);
 
     res.status(200).json({ message: "Usuário apagado com sucesso" });
+  } else {
+    res.status(404).json({ error: "Usuário não encontrado" });
   }
-
-  res.status(404).json({ error: "Usuário não encontrado" });
 };

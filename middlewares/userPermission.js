@@ -3,8 +3,6 @@ var data = require("../fakeData");
 module.exports = function (req, res, next) {
   var id = Number(req.query.UserId);
 
-  console.log(req.method);
-
   if (!id) {
     res.status(404).json({ error: "Usuário não encontrado" });
   }
